@@ -21,9 +21,9 @@ export default function FilterFramework({
   selectedFramework,
   setSelectedFramework,
 }: Props) {
-  const [framework, setFramework] = useState(selectedFramework);
+  const [framework, setFramework] = useState<string>(selectedFramework);
   const [wasSelected, setWasSelected] = useState<boolean>(false);
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setShowMenu((prevState) => !prevState);

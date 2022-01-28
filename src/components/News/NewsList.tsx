@@ -1,6 +1,6 @@
 import React from "react";
 import NewsItem from "./NewsItem";
-import styles from "./NewstList.module.css";
+import styles from "./NewsList.module.css";
 
 interface Props {
   selectedFilter: string;
@@ -54,9 +54,11 @@ const dummyNewsList: Article[] = [
 export default function NewsList({ selectedFilter, selectedFramework }: Props) {
   return (
     <>
-      {dummyNewsList.map((el) => (
-        <NewsItem article={el} key={el.story_id} />
-      ))}
+      <div className={styles.list_container}>
+        {dummyNewsList.map((el) => (
+          <NewsItem article={el} key={el.story_id} />
+        ))}
+      </div>
     </>
   );
 }

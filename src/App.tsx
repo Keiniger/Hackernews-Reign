@@ -21,6 +21,7 @@ export default function App() {
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />
+      <div className={styles.mini_container}>
       <FilterFramework
         selectedFramework={selectedFramework}
         setSelectedFramework={setSelectedFramework}
@@ -29,6 +30,8 @@ export default function App() {
         selectedFilter={selectedFilter}
         selectedFramework={selectedFramework}
       />
+      </div>
+
       {selectedFramework}
       <Paginator />
     </div>
