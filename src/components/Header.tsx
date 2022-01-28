@@ -1,6 +1,19 @@
-import React from 'react';
-import styles from './Header.module.css';
+import React from "react";
+import styles from "./Header.module.css";
 
 export default function Header() {
-  return (<div>Header</div>);
+  return (
+    <header className={styles.header}>
+      <h1 className={styles.title}>
+        <a
+          className={styles.link}
+          href="https://hacker.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          HACKER NEWS
+        </a>
+      </h1>
+    </header>
+  );
 }
