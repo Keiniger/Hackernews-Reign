@@ -4,7 +4,6 @@
     position: relative;
 }
 
-/* campo de seleccion */
 .field {
     align-items: center;
     border: solid 1px #2e2e2e;
@@ -14,6 +13,10 @@
     justify-content: space-between;
     padding-left: 12px;
     padding-right: 12px;
+}
+
+.field:hover {
+    cursor: pointer;
 }
 
 .text {
@@ -30,7 +33,6 @@
     transform-origin: center;
 }
 
-/* menu de seleccion */
 .item_container {
     background-color: #ffffff;
     box-shadow: 0 2px 2px 0 #dad8d8;
@@ -77,8 +79,8 @@
 }
 
 .item:hover {
-    --bg-opacity: 0.2;
-    background-color: rgba(234, 234, 234, var(--bg-opacity));
+    background-color: rgba(234, 234, 234, 0.2);
+    cursor: pointer;
 }
 
 .item img {

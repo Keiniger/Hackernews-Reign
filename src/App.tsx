@@ -11,7 +11,7 @@ export default function App() {
   const frameworkFromLocalStorage = getFromLocalStorage(Keys.Framework);
   const filterFromLocalStorage = getFromLocalStorage(Keys.Filter);
 
-  const [selectedFramework, setSelectedFramework] = useState(frameworkFromLocalStorage || "React")
+  const [selectedFramework, setSelectedFramework] = useState(frameworkFromLocalStorage || "Select your news")
   const [selectedFilter, setSelectedFilter] = useState(filterFromLocalStorage || "All")
 
   return (
