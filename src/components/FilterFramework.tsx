@@ -3,7 +3,7 @@ import dropdown from "../assets/dropdown-icon.svg";
 import reactIcon from "../assets/react.jpg";
 import angularIcon from "../assets/angular.jpg";
 import vueIcon from "../assets/vue.jpg";
-import styles from "./Selector.module.css";
+import styles from "./FilterFramework.module.css";
 
 const Frameworks = [
   { name: "React", icon: reactIcon },
@@ -16,7 +16,7 @@ interface Props {
   setSelectedFramework: (framework: string) => void;
 }
 
-export default function Selector({
+export default function FilterFramework({
   selectedFramework,
   setSelectedFramework,
 }: Props) {
