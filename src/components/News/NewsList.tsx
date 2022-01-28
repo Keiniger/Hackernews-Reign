@@ -13,6 +13,7 @@ export interface Article {
   story_id: number;
   story_title: string;
   story_url: string;
+  isFavorite: boolean;
 }
 
 const dummyNewsList: Article[] = [
@@ -24,6 +25,7 @@ const dummyNewsList: Article[] = [
       "More than 70% of prometheus executable are unused by most people",
     story_url:
       "https://wejick.wordpress.com/2022/01/29/can-i-have-a-smaller-prometheus/",
+    isFavorite: true,
   },
   {
     author: "Jon Doe",
@@ -33,6 +35,7 @@ const dummyNewsList: Article[] = [
       "More than 70% of prometheus executable are unused by most people",
     story_url:
       "https://wejick.wordpress.com/2022/01/29/can-i-have-a-smaller-prometheus/",
+    isFavorite: false,
   },
 
   {
@@ -43,6 +46,7 @@ const dummyNewsList: Article[] = [
       "More than 70% of prometheus executable are unused by most people",
     story_url:
       "https://wejick.wordpress.com/2022/01/29/can-i-have-a-smaller-prometheus/",
+    isFavorite: true,
   },
 ];
 

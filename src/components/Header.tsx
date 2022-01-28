@@ -8,7 +8,7 @@ export default function Header() {
         <a
           id="headerTitle"
           className={styles.link}
-          href="https://hacker-news.org"
+          href="https://keiniger.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
         >

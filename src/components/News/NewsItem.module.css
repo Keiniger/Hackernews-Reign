@@ -1,0 +1,53 @@
+.item_container {
+  border: 1px solid rgb(151, 151, 151, 0.8);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  max-height: 90px;
+  transition-duration: 100ms;
+}
+
+.item_container:hover {
+  opacity: 0.5;
+}
+
+.time_container {
+  display: flex;
+  align-items: center;
+}
+
+.timeIcon {
+  height: 16px;
+  margin-right: 8px;
+  width: 16px;
+}
+
+.item_container a {
+  text-decoration: none;
+  color: #606060;
+  width: 100%;
+  padding: 16px 16px 14px 26px;
+}
+
+.item_container span {
+  color: #767676;
+  font-size: 11px;
+}
+
+.item_container h2 {
+  font-size: 14px;
+  max-height: 34px;
+  overflow: hidden;
+}
+
+.heart_button {
+  background-color: rgba(96, 96, 96, 0.06);
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  min-width: 68px;
+}
+
+.heart_button img:hover {
+  cursor: pointer;
+}
