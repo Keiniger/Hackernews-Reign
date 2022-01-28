@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { setInLocalStorage, Keys } from "../utils/localStorage";
 import dropdown from "../assets/dropdown-icon.svg";
 import reactIcon from "../assets/react.jpg";
 import angularIcon from "../assets/angular.jpg";
@@ -25,15 +26,14 @@ export default function FilterFramework({
 
   const toggleMenu = () => {
     setShowMenu((prevState) => !prevState);
-    console.log(showMenu);
   };
 
-  const handleSelected = (name: string) => {
-    setFramework(name);
-    setSelectedFramework(name);
-    
-    // Todo: local storage
-    //setInLocalStorage("reign::selected-framework", name);
+  const handleSelected = (selected: string) => {
+    setFramework(selected);
+    setSelectedFramework(selected);
+
+    setInLocalStorage(Keys.Framework, selected);
+    console.log(selected);
 
     if (showMenu) {
       setTimeout(() => {
@@ -46,12 +46,11 @@ export default function FilterFramework({
     <div className={styles.container}>
       <div className={styles.field} onClick={toggleMenu}>
         <span className={styles.text}>{framework}</span>
-          <img
-            className={`${styles.icon} ${showMenu ? styles.show_icon : ""}`}
-            src={dropdown}
-            alt="dropdown"
-          />
-        
+        <img
+          className={`${styles.icon} ${showMenu ? styles.show_icon : ""}`}
+          src={dropdown}
+          alt="dropdown"
+        />
       </div>
 
       <ul
