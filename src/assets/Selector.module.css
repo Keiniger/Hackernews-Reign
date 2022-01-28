@@ -25,7 +25,7 @@
     width: 10px;
 }
 
-.show_icon {
+.field .icon .show {
     transform: rotateZ(180deg);
     transform-origin: center;
 }
@@ -47,23 +47,9 @@
     z-index: 10;
 }
 
-.show_item {
+.item_container .show {
     display: block;
     margin-top: 35px;
-    animation: rotateMenu 400ms ease-in-out forwards;
-    transform-origin: top center;
-}
-
-@keyframes rotateMenu {
-    0% {
-        transform: rotateX(-90deg)
-    }
-    70% {
-        transform: rotateX(20deg) 
-    }
-    100% {
-        transform: rotateX(0deg) 
-    }
 }
 
 .item {

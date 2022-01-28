@@ -7,7 +7,7 @@ export default function Header() {
       <h1 className={styles.title}>
         <a
           className={styles.link}
-          href="https://hacker.org"
+          href="https://hacker-news.org"
           target="_blank"
           rel="noopener noreferrer"
         >
