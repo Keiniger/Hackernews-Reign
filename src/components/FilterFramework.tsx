@@ -6,10 +6,16 @@ import angularIcon from "../assets/angular.jpg";
 import vueIcon from "../assets/vue.jpg";
 import styles from "./FilterFramework.module.css";
 
+export enum FrameworkType {
+  React = "React",
+  Angular = "Angular",
+  Vue = "Vue",
+}
+
 const Frameworks = [
-  { name: "React", icon: reactIcon },
-  { name: "Angular", icon: angularIcon },
-  { name: "Vue", icon: vueIcon },
+  { name: FrameworkType.React, icon: reactIcon },
+  { name: FrameworkType.Angular, icon: angularIcon },
+  { name: FrameworkType.Vue, icon: vueIcon },
 ];
 
 interface Props {

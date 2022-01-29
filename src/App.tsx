@@ -8,11 +8,13 @@ import Paginator from "./components/Paginator";
 import styles from "./App.module.css";
 
 export default function App() {
-  const frameworkFromLocalStorage = getFromLocalStorage(Keys.Framework);
-  const filterFromLocalStorage = getFromLocalStorage(Keys.Filter);
-
-  const [selectedFramework, setSelectedFramework] = useState(frameworkFromLocalStorage || "Select your news")
-  const [selectedFilter, setSelectedFilter] = useState(filterFromLocalStorage || "All")
+  const [page, setPage] = useState<number>(1);
+  const [selectedFramework, setSelectedFramework] = useState(
+    getFromLocalStorage(Keys.Framework) || "Select your news"
+  );
+  const [selectedFilter, setSelectedFilter] = useState(
+    getFromLocalStorage(Keys.Filter) || "All"
+  );
 
   return (
     <div className={styles.app}>
@@ -22,17 +24,16 @@ export default function App() {
         setSelectedFilter={setSelectedFilter}
       />
       <div className={styles.mini_container}>
-      <FilterFramework
-        selectedFramework={selectedFramework}
-        setSelectedFramework={setSelectedFramework}
-      />
-      <NewsList
-        selectedFilter={selectedFilter}
-        selectedFramework={selectedFramework}
-      />
+        <FilterFramework
+          selectedFramework={selectedFramework}
+          setSelectedFramework={setSelectedFramework}
+        />
+        <NewsList
+          page={page}
+          selectedFilter={selectedFilter}
+          selectedFramework={selectedFramework}
+        />
       </div>
-
-      {selectedFramework}
       <Paginator />
     </div>
   );

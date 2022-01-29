@@ -1,10 +1,17 @@
 import React from "react";
 import NewsItem from "./NewsItem";
 import styles from "./NewsList.module.css";
+import { useFetch } from "../../hooks/useFetch";
+import { FilterType } from "../FilterFaves";
+import { FrameworkType } from "../FilterFramework";
 
 interface Props {
-  selectedFilter: string;
-  selectedFramework: string;
+  page: number;
+  selectedFilter: FilterType.All | FilterType.MyFaves;
+  selectedFramework:
+    | FrameworkType.React
+    | FrameworkType.Angular
+    | FrameworkType.Vue;
 }
 
 export interface Article {
@@ -13,7 +20,7 @@ export interface Article {
   story_id: number;
   story_title: string;
   story_url: string;
-  isFavorite: boolean;
+  isFavorite?: boolean;
 }
 
 const dummyNewsList: Article[] = [
@@ -51,11 +58,21 @@ const dummyNewsList: Article[] = [
 ];
 
 //Todo: fetch api
-export default function NewsList({ selectedFilter, selectedFramework }: Props) {
+export default function NewsList({
+  page,
+  selectedFilter,
+  selectedFramework,
+}: Props) {
+  const {
+    data: newsList,
+    isLoading,
+    totalPages,
+  } = useFetch(selectedFramework, page, selectedFilter);
+
   return (
     <>
       <div className={styles.list_container}>
-        {dummyNewsList.map((el) => (
+        {newsList.map((el) => (
           <NewsItem article={el} key={el.story_id} />
         ))}
       </div>
