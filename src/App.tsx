@@ -33,8 +33,8 @@ export default function App() {
           selectedFilter={selectedFilter}
           selectedFramework={selectedFramework}
         />
+        <Paginator page={page} setPage={setPage} />
       </div>
-      <Paginator page={page} setPage={setPage} />
     </div>
   );
 }

@@ -69,10 +69,13 @@ export default function NewsList({
     totalPages,
   } = useFetch(selectedFramework, page, selectedFilter);
 
+  const ids = newsList.map(o => o.story_id)
+  const listWithoutRepeat = newsList.filter(({story_id}, index) => !ids.includes(story_id, index + 1))
+
   return (
     <>
       <div className={styles.list_container}>
-        {newsList.map((el) => (
+        {listWithoutRepeat.map((el) => (
           <NewsItem article={el} key={el.story_id} />
         ))}
       </div>

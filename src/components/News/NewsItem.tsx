@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function NewsItem({ article }: Props) {
+  console.log(article.isFavorite);
   return (
     <div className={styles.item_container}>
       <a href={article.story_url} target="_blank" rel="noopener noreferrer">
@@ -29,7 +30,6 @@ export default function NewsItem({ article }: Props) {
           src={article.isFavorite ? heartFullIcon : heartEmptyIcon}
           alt="heart"
         />
-        {console.log(article.isFavorite)}
       </button>
     </div>
   );

@@ -43,16 +43,15 @@ export default function FilterFramework({
     setInLocalStorage(Keys.Framework, selected);
     console.log(selected);
 
-    if (showMenu) {
-      setTimeout(() => {
-        toggleMenu();
-      }, 100);
-    }
+    setShowMenu(false);
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.field} onClick={toggleMenu}>
+      <div
+        className={styles.field}
+        onClick={() => setShowMenu((prevState) => !prevState)}
+      >
         <span className={styles.text}>
           {wasSelected ? framework : "Select your news"}
         </span>
@@ -67,7 +66,7 @@ export default function FilterFramework({
         className={`${styles.item_container} ${
           showMenu ? styles.show_item : ""
         }`}
-        onMouseLeave={toggleMenu}
+        onMouseLeave={() => setShowMenu(false)}
       >
         {Frameworks.map((fr) => (
           <li
