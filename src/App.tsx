@@ -34,7 +34,7 @@ export default function App() {
           selectedFramework={selectedFramework}
         />
       </div>
-      <Paginator />
+      <Paginator page={page} setPage={setPage} />
     </div>
   );
 }

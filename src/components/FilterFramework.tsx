@@ -67,6 +67,7 @@ export default function FilterFramework({
         className={`${styles.item_container} ${
           showMenu ? styles.show_item : ""
         }`}
+        onMouseLeave={toggleMenu}
       >
         {Frameworks.map((fr) => (
           <li
