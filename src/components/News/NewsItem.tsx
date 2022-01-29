@@ -6,28 +6,52 @@ import heartEmptyIcon from "../../assets/heart-empty-icon.svg";
 import styles from "./NewsItem.module.css";
 
 interface Props {
-  article: Article;
+  skeleton?: boolean;
+  article?: Article;
 }
 
-export default function NewsItem({ article }: Props) {
-  console.log(article.isFavorite);
+export default function NewsItem({ skeleton, article }: Props) {
   return (
     <div className={styles.item_container}>
-      <a href={article.story_url} target="_blank" rel="noopener noreferrer">
-        <span className={styles.time_container}>
-          <img src={timeIcon} alt="clock" className={styles.timeIcon} />
-          <span>{article.created_at}</span>
-        </span>
+      {skeleton ? (
+        <div className={styles.skeleton_anchor}>
+          <span className={styles.time_container}>
+            <img src={timeIcon} alt="clock" className={styles.timeIcon} />
+            <span
+              className={styles.skeleton_box}
+              style={{ height: "11px", width: "120px" }}
+            />
+          </span>
+          <span
+            className={styles.skeleton_box}
+            style={{ marginTop: "6px", height: "14px", width: "90%" }}
+          />
+          <span
+            className={styles.skeleton_box}
+            style={{ height: "14px", width: "60%" }}
+          />
+        </div>
+      ) : (
+        <a href={article?.story_url} target="_blank" rel="noopener noreferrer">
+          <span className={styles.time_container}>
+            <img src={timeIcon} alt="clock" className={styles.timeIcon} />
+            <span>{article?.created_at}</span>
+          </span>
+          <h2>{article?.story_title}</h2>
+        </a>
+      )}
 
-        <h2>{article.story_title}</h2>
-      </a>
       <button
         type="button"
-        className={styles.heart_button}
+        className={`${styles.heart_button} ${
+          skeleton ? styles.heart_skeleton : ""
+        }`}
         //onClick={handleFaveAction}
       >
         <img
-          src={article.isFavorite ? heartFullIcon : heartEmptyIcon}
+          src={
+            !article?.isFavorite || skeleton ? heartEmptyIcon : heartFullIcon
+          }
           alt="heart"
         />
       </button>
