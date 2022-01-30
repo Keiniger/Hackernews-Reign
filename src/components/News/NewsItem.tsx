@@ -64,7 +64,7 @@ export default function NewsItem({ skeleton, selectedFilter, article }: Props) {
         <a href={article?.story_url} target="_blank" rel="noopener noreferrer">
           <span className={styles.time_container}>
             <img src={timeIcon} alt="clock" className={styles.timeIcon} />
-            <span>{formatTime(article?.created_at)}</span>
+            <span>{formatTime(article?.created_at)} by {article?.author}</span>
           </span>
           <h2>{article?.story_title}</h2>
         </a>

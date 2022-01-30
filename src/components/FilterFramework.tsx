@@ -28,7 +28,6 @@ export default function FilterFramework({
   setSelectedFramework,
 }: Props) {
   const [framework, setFramework] = useState<string>(selectedFramework);
-  const [wasSelected, setWasSelected] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const toggleMenu = () => {
@@ -37,7 +36,6 @@ export default function FilterFramework({
 
   const handleSelected = (selected: string) => {
     setFramework(selected);
-    setWasSelected(true);
     setSelectedFramework(selected);
 
     setInLocalStorage(Keys.Framework, selected);
@@ -53,7 +51,7 @@ export default function FilterFramework({
         onClick={() => setShowMenu((prevState) => !prevState)}
       >
         <span className={styles.text}>
-          {wasSelected ? framework : "Select your news"}
+          {framework}
         </span>
         <img
           className={`${styles.icon} ${showMenu ? styles.show_icon : ""}`}

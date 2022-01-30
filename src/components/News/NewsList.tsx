@@ -35,7 +35,6 @@ export default function NewsList({
     // totalPages,
   } = useFetch(selectedFramework, pages[selectedFilter], selectedFilter);
 
-  let finalNewsList = [];
   const ids = newsListRaw.map((o) => o.story_id);
   const listWithoutRepeat = newsListRaw.filter(
     ({ story_id }, index) => !ids.includes(story_id, index + 1)
@@ -44,18 +43,15 @@ export default function NewsList({
   function createFavPages(favesList: any) {
     const maxElementsPerPage = 8;
     const amountOfPages = Math.ceil(favesList.length / maxElementsPerPage);
-    let copiedList = [...favesList];
-    let dividedPages = [...Array(amountOfPages).fill(0)];
-    return dividedPages.map((el, i) =>
-      copiedList.splice(0, maxElementsPerPage)
-    );
+    const dividedPages = [...Array(amountOfPages).fill(0)];
+    return dividedPages.map((_, i) => favesList.splice(0, maxElementsPerPage));
   }
 
-  finalNewsList = listWithoutRepeat; /*
+  let finalNewsList = [...listWithoutRepeat].splice(1);
   if (selectedFilter === FilterType.MyFaves) {
-    const favPages = createFavPages(listWithoutRepeat);
-    finalNewsList = favPages[pages.MyFaves];
-  }*/
+    finalNewsList = createFavPages([...finalNewsList])[pages.MyFaves - 1];
+    console.log(finalNewsList);
+  }
 
   return (
     <>
@@ -65,11 +61,9 @@ export default function NewsList({
             return Array(9)
               .fill("")
               .map((el) => <NewsItem skeleton />);
-          } else if (finalNewsList.length === 0) {
+          } else if (!finalNewsList) {
             return (
-              <div className={styles.no_articles}>
-                No articles to display
-              </div>
+              <div className={styles.no_articles}>No articles to display</div>
             );
           } else {
             return finalNewsList.map((el) => (

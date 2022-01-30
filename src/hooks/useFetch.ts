@@ -44,22 +44,18 @@ export const useFetch = (
             isFavorite: index > -1,
           };
         });
-        setTimeout(() => {
-          setState({
-            data: upatedData,
-            isLoading: false,
-            totalPages: pages - 1,
-          });
-        }, 500);
+        setState({
+          data: upatedData,
+          isLoading: false,
+          totalPages: pages - 1,
+        });
       });
     } else {
-      setTimeout(() => {
-        setState({
-          data: favorites,
-          isLoading: false,
-          totalPages: 0,
-        });
-      }, 800);
+      setState({
+        data: favorites,
+        isLoading: false,
+        totalPages: 0,
+      });
     }
   }, [page, selectedFramework, selectedFilter]);
 
