@@ -13,15 +13,6 @@ interface Props {
     | FrameworkType.Vue;
 }
 
-export interface Article {
-  author: string;
-  created_at: string;
-  story_id: number;
-  story_title: string;
-  story_url: string;
-  isFavorite?: boolean;
-}
-
 export default function NewsList({
   pages,
   selectedFilter,
