@@ -25,17 +25,10 @@ export default function FilterFramework({
   const [framework, setFramework] = useState<string>(selectedFramework);
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
-  const toggleMenu = () => {
-    setShowMenu((prevState) => !prevState);
-  };
-
   const handleSelected = (selected: string) => {
     setFramework(selected);
     setSelectedFramework(selected);
-
     setInLocalStorage(Keys.Framework, selected);
-    console.log(selected);
-
     setShowMenu(false);
   };
 

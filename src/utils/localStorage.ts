@@ -1,4 +1,4 @@
-import { Keys, Article } from "../types/Types";
+import { Keys } from "../types/Types";
 
 export const setInLocalStorage = (key: any, data: any) => {
   const dataParsed = JSON.stringify(data);

@@ -25,7 +25,6 @@ export const useFetch = (
   useEffect(() => {
     setState(initialState);
     const favorites = getFavorites();
-    console.log(favorites);
     if (selectedFilter === FilterType.All) {
       getPageByFramework(page, selectedFramework).then(({ data, pages }) => {
         const orderedData = data.sort((a: any, b: any) => {

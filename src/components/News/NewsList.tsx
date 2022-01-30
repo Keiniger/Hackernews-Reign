@@ -39,7 +39,6 @@ export default function NewsList({
   let finalNewsList = [...listWithoutRepeat].splice(1);
   if (selectedFilter === FilterType.MyFaves) {
     finalNewsList = createFavPages([...finalNewsList])[pages.MyFaves - 1];
-    console.log(finalNewsList);
   }
 
   return (

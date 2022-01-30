@@ -25,7 +25,6 @@ export default function NewsItem({ skeleton, selectedFilter, article }: Props) {
     setArticleState(updatedArticle);
     setIsFavoriteState((prevState) => !prevState);
 
-    console.log(articleState);
 
     if (articleState.isFavorite) {
       removeFavorite(updatedArticle as Article);
@@ -35,7 +34,6 @@ export default function NewsItem({ skeleton, selectedFilter, article }: Props) {
   };
 
   if (selectedFilter === FilterType.MyFaves && !isFavoriteState) {
-    console.log(selectedFilter === FilterType.MyFaves && !isFavoriteState);
     return <></>;
   }
 

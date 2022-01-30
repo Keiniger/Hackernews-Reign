@@ -17,7 +17,7 @@ export const enum FrameworkType {
   Angular = "Angular",
   Vue     = "Vue",
 }
-export  enum FilterType {
+export const enum FilterType {
   All     = "All",
   MyFaves = "MyFaves",
 }
