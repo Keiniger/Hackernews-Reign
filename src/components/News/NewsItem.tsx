@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Article } from "./NewsList";
 import { addFavorite, removeFavorite } from "../../utils/localStorage";
 import { formatTime } from "../../utils/formatTime";
-import { FilterType } from "../FilterFaves";
+import { FilterType, Article } from "../../types/Types";
 import timeIcon from "../../assets/time-icon.svg";
 import heartFullIcon from "../../assets/heart-full-icon.svg";
 import heartEmptyIcon from "../../assets/heart-empty-icon.svg";

@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import NewsItem from "./NewsItem";
 import styles from "./NewsList.module.css";
 import { useFetch } from "../../hooks/useFetch";
-import { FilterType } from "../FilterFaves";
-import { FrameworkType } from "../FilterFramework";
-import { PagesType } from "../../App";
+import { FilterType, FrameworkType, PagesType } from "../../types/Types";
 
 interface Props {
   pages: PagesType;

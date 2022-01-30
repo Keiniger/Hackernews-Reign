@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import dropdownIcon from "../assets/dropdown-icon.svg";
 import styles from "./Paginator.module.css";
-import { PagesType } from "../App";
-import { FilterType } from "../components/FilterFaves";
+import { PagesType, FilterType } from "../types/Types";
 
 interface Props {
   selectedFilter: FilterType;

@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import {setInLocalStorage, Keys} from "../utils/localStorage";
+import {setInLocalStorage} from "../utils/localStorage";
+import {Keys, FilterType} from "../types/Types"
 import styles from "./FilterFaves.module.css";
-
-export enum FilterType {
-  All     = "All",
-  MyFaves = "MyFaves",
-}
 
 interface Props {
   selectedFilter?: string;

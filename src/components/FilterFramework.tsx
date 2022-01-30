@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { setInLocalStorage, Keys } from "../utils/localStorage";
+import { setInLocalStorage } from "../utils/localStorage";
+import { FrameworkType, Keys } from "../types/Types";
 import dropdown from "../assets/dropdown-icon.svg";
 import reactIcon from "../assets/react.jpg";
 import angularIcon from "../assets/angular.jpg";
 import vueIcon from "../assets/vue.jpg";
 import styles from "./FilterFramework.module.css";
-
-export enum FrameworkType {
-  React = "React",
-  Angular = "Angular",
-  Vue = "Vue",
-}
 
 const Frameworks = [
   { name: FrameworkType.React, icon: reactIcon },
@@ -50,9 +45,7 @@ export default function FilterFramework({
         className={styles.field}
         onClick={() => setShowMenu((prevState) => !prevState)}
       >
-        <span className={styles.text}>
-          {framework}
-        </span>
+        <span className={styles.text}>{framework}</span>
         <img
           className={`${styles.icon} ${showMenu ? styles.show_icon : ""}`}
           src={dropdown}

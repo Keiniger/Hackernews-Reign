@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPageByFramework } from "../utils/getPageByFramework";
 import { getFavorites } from "../utils/localStorage";
-import { FilterType } from "../components/FilterFaves";
-import { FrameworkType } from "../components/FilterFramework";
-import { Article } from "../components/News/NewsList";
+import { FilterType, FrameworkType, Article } from "../types/Types";
 
 interface Fetched {
   data: Article[];

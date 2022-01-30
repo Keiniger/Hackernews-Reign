@@ -1,10 +1,4 @@
-import { Article } from "../components/News/NewsList";
-
-export const enum Keys {
-  Favorites = "reign-challenge::favorites",
-  Framework = "reign-challenge::selected-framework",
-  Filter = "reign-challenge::selected-filter",
-}
+import { Keys, Article } from "../types/Types";
 
 export const setInLocalStorage = (key: any, data: any) => {
   const dataParsed = JSON.stringify(data);

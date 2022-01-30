@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import { getFromLocalStorage, Keys } from "./utils/localStorage";
+import { getFromLocalStorage } from "./utils/localStorage";
+import { PagesType, FilterType, Keys } from "./types/Types";
 import Header from "./components/Header";
 import FilterFramework from "./components/FilterFramework";
-import FilterFaves, { FilterType } from "./components/FilterFaves";
+import FilterFaves from "./components/FilterFaves";
 import NewsList from "./components/News/NewsList";
 import Paginator from "./components/Paginator";
 import styles from "./App.module.css";
 
-export interface PagesType {
-  All: number;
-  MyFaves: number;
-}
-
 export default function App() {
-  const [pages, setPages] = useState({
+  const [pages, setPages] = useState<PagesType>({
     All: 1,
     MyFaves: 1,
   });
