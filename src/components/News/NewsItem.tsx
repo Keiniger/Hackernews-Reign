@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Article } from "./NewsList";
 import { addFavorite, removeFavorite } from "../../utils/localStorage";
+import { formatTime } from "../../utils/formatTime";
+import { FilterType } from "../FilterFaves";
 import timeIcon from "../../assets/time-icon.svg";
 import heartFullIcon from "../../assets/heart-full-icon.svg";
 import heartEmptyIcon from "../../assets/heart-empty-icon.svg";
@@ -8,10 +10,11 @@ import styles from "./NewsItem.module.css";
 
 interface Props {
   skeleton?: boolean;
+  selectedFilter?: FilterType;
   article?: Article;
 }
 
-export default function NewsItem({ skeleton, article }: Props) {
+export default function NewsItem({ skeleton, selectedFilter, article }: Props) {
   const [articleState, setArticleState] = useState({ ...article });
   const [isFavoriteState, setIsFavoriteState] = useState(article?.isFavorite);
 
@@ -31,6 +34,11 @@ export default function NewsItem({ skeleton, article }: Props) {
       addFavorite(updatedArticle as Article);
     }
   };
+
+  if (selectedFilter === FilterType.MyFaves && !isFavoriteState) {
+    console.log(selectedFilter === FilterType.MyFaves && !isFavoriteState);
+    return <></>;
+  }
 
   return (
     <div className={styles.item_container}>
@@ -56,7 +64,7 @@ export default function NewsItem({ skeleton, article }: Props) {
         <a href={article?.story_url} target="_blank" rel="noopener noreferrer">
           <span className={styles.time_container}>
             <img src={timeIcon} alt="clock" className={styles.timeIcon} />
-            <span>{article?.created_at}</span>
+            <span>{formatTime(article?.created_at)}</span>
           </span>
           <h2>{article?.story_title}</h2>
         </a>

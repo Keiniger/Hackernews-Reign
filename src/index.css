@@ -1,9 +1,19 @@
 ::-moz-selection {
-    color: #000000;
-    background: #5cb5ff;
-  }
-  
-  ::selection {
-    color: #000000;
-    background: #5cb5ff;
-  }
+  color: #000000;
+  background: #5cb5ff;
+}
+
+::selection {
+  color: #000000;
+  background: #5cb5ff;
+}
+
+body:not(#headerTitle) {
+  font-family: "Roboto", sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}

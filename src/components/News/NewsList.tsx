@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NewsItem from "./NewsItem";
 import styles from "./NewsList.module.css";
 import { useFetch } from "../../hooks/useFetch";
@@ -34,6 +34,7 @@ export default function NewsList({
     isLoading,
     // totalPages,
   } = useFetch(selectedFramework, pages[selectedFilter], selectedFilter);
+
   let finalNewsList = [];
   const ids = newsListRaw.map((o) => o.story_id);
   const listWithoutRepeat = newsListRaw.filter(
@@ -59,13 +60,27 @@ export default function NewsList({
   return (
     <>
       <div className={styles.list_container}>
-        {!isLoading
-          ? finalNewsList.map((el) => (
-              <NewsItem article={el} key={el.story_id} />
-            ))
-          : Array(9)
+        {(() => {
+          if (isLoading) {
+            return Array(9)
               .fill("")
-              .map((el) => <NewsItem skeleton />)}
+              .map((el) => <NewsItem skeleton />);
+          } else if (finalNewsList.length === 0) {
+            return (
+              <div className={styles.no_articles}>
+                No articles to display
+              </div>
+            );
+          } else {
+            return finalNewsList.map((el) => (
+              <NewsItem
+                article={el}
+                selectedFilter={selectedFilter}
+                key={el.story_id}
+              />
+            ));
+          }
+        })()}
       </div>
     </>
   );

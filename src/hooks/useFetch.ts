@@ -30,8 +30,12 @@ export const useFetch = (
     console.log(favorites);
     if (selectedFilter === FilterType.All) {
       getPageByFramework(page, selectedFramework).then(({ data, pages }) => {
-        console.log(data);
-        const upatedData = data.map((item: Article) => {
+        const orderedData = data.sort((a: any, b: any) => {
+          return (
+            new Date(a.created_at).valueOf() - new Date(a.created_at).valueOf()
+          );
+        });
+        const upatedData = orderedData.map((item: Article) => {
           const index = favorites.findIndex(
             (f: Article) => f.created_at === item.created_at
           );

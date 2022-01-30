@@ -1,5 +1,6 @@
 .app {
-    margin: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .mini_container {
@@ -7,6 +8,8 @@
   margin: 0 auto;
 }
 
-body:not(#headerTitle){
-  font-family: "Roboto", sans-serif;
+@media screen and (max-width: 1140px) {
+  .mini_container {
+    margin: 0 13px;
+  }
 }

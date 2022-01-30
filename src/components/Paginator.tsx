@@ -12,7 +12,7 @@ interface Props {
 
 const visibleLength = 9;
 const minPage = 1;
-const maxPage = 49;
+const maxPage = 100;
 
 const ascendingArray = (startsWith: number) => {
   let array = Array.from({ length: visibleLength }, (_, i) => startsWith + i);

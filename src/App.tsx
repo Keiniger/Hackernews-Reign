@@ -32,17 +32,14 @@ export default function App() {
         setSelectedFilter={setSelectedFilter}
       />
       <div className={styles.mini_container}>
-        <div
-          style={{
-            visibility:
-              selectedFilter === FilterType.All ? "visible" : "hidden",
-          }}
-        >
+        {selectedFilter === FilterType.All ? (
           <FilterFramework
             selectedFramework={selectedFramework}
             setSelectedFramework={setSelectedFramework}
           />
-        </div>
+        ) : (
+          <div style={{ height: "102px" }} />
+        )}
 
         <NewsList
           pages={pages}

@@ -10,21 +10,32 @@
 }
 
 .link {
-    color: #3b3b3b;
-    text-decoration: none;
+  color: #3b3b3b;
+  text-decoration: none;
 }
 
 .title {
-    width: 208px;
-    height: 28px;
-    object-fit: contain;
-    font-family: Baskerville;
-    font-size: 28px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    cursor: pointer;
-    margin: 44px auto 42px 150px;
+  width: 208px;
+  height: 28px;
+  object-fit: contain;
+  font-family: Baskerville;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  cursor: pointer;
+  margin: 44px auto 42px 150px;
+}
+
+@media screen and (max-width: 680px) {
+  .header {
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
   }
+  .title {
+    margin: 44px 0 42px 10px;
+  }
+}
