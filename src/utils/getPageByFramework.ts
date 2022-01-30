@@ -21,6 +21,7 @@ export const getPageByFramework = async ( page: number, selectedFramework: Frame
         }
         return list;
     }, [])
+
     return {
         data: newsList,
         pages

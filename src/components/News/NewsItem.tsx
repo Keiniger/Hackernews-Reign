@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Article } from "./NewsList";
+import { addFavorite, removeFavorite } from "../../utils/localStorage";
 import timeIcon from "../../assets/time-icon.svg";
 import heartFullIcon from "../../assets/heart-full-icon.svg";
 import heartEmptyIcon from "../../assets/heart-empty-icon.svg";
@@ -11,6 +12,26 @@ interface Props {
 }
 
 export default function NewsItem({ skeleton, article }: Props) {
+  const [articleState, setArticleState] = useState({ ...article });
+  const [isFavoriteState, setIsFavoriteState] = useState(article?.isFavorite);
+
+  const handleFave = () => {
+    const updatedArticle = {
+      ...articleState,
+      isFavorite: !articleState.isFavorite,
+    };
+    setArticleState(updatedArticle);
+    setIsFavoriteState((prevState) => !prevState);
+
+    console.log(articleState);
+
+    if (articleState.isFavorite) {
+      removeFavorite(updatedArticle as Article);
+    } else {
+      addFavorite(updatedArticle as Article);
+    }
+  };
+
   return (
     <div className={styles.item_container}>
       {skeleton ? (
@@ -46,12 +67,10 @@ export default function NewsItem({ skeleton, article }: Props) {
         className={`${styles.heart_button} ${
           skeleton ? styles.heart_skeleton : ""
         }`}
-        //onClick={handleFaveAction}
+        onClick={handleFave}
       >
         <img
-          src={
-            !article?.isFavorite || skeleton ? heartEmptyIcon : heartFullIcon
-          }
+          src={!isFavoriteState || skeleton ? heartEmptyIcon : heartFullIcon}
           alt="heart"
         />
       </button>

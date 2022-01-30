@@ -13,11 +13,11 @@ interface Props {
 }
 
 export default function FilterFaves({ selectedFilter, setSelectedFilter }: Props) {
-  console.log(selectedFilter);
   const [selectedButton, setSelectedButton] = useState(selectedFilter || "All");
 
   const handleSelection = (option: FilterType) => {
     setSelectedButton(option);
+    setSelectedFilter(option);
     setInLocalStorage(Keys.Filter, option);
   };
 

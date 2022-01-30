@@ -27,15 +27,17 @@ export const useFetch = (
   useEffect(() => {
     setState(initialState);
     const favorites = getFavorites();
+    console.log(favorites);
     if (selectedFilter === FilterType.All) {
       getPageByFramework(page, selectedFramework).then(({ data, pages }) => {
+        console.log(data);
         const upatedData = data.map((item: Article) => {
           const index = favorites.findIndex(
             (f: Article) => f.created_at === item.created_at
           );
           return {
             ...item,
-            favorite: index > -1,
+            isFavorite: index > -1,
           };
         });
         setTimeout(() => {

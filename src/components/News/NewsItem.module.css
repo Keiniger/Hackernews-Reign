@@ -50,11 +50,11 @@
   min-width: 68px;
 }
 
-.heart_button img:hover {
+.heart_button:hover {
   cursor: pointer;
 }
 
-.heart_skeleton img{
+.heart_skeleton img {
   filter: grayscale(100%);
   opacity: 0.5;
 }

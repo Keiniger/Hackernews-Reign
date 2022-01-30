@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { getFromLocalStorage, Keys } from "./utils/localStorage";
 import Header from "./components/Header";
 import FilterFramework from "./components/FilterFramework";
-import FilterFaves from "./components/FilterFaves";
+import FilterFaves, { FilterType } from "./components/FilterFaves";
 import NewsList from "./components/News/NewsList";
 import Paginator from "./components/Paginator";
 import styles from "./App.module.css";
 
+export interface PagesType {
+  All: number;
+  MyFaves: number;
+}
+
 export default function App() {
-  const [page, setPage] = useState<number>(1);
+  const [pages, setPages] = useState({
+    All: 1,
+    MyFaves: 1,
+  });
   const [selectedFramework, setSelectedFramework] = useState(
     getFromLocalStorage(Keys.Framework) || "Select your news"
   );
@@ -24,16 +32,28 @@ export default function App() {
         setSelectedFilter={setSelectedFilter}
       />
       <div className={styles.mini_container}>
-        <FilterFramework
-          selectedFramework={selectedFramework}
-          setSelectedFramework={setSelectedFramework}
-        />
+        <div
+          style={{
+            visibility:
+              selectedFilter === FilterType.All ? "visible" : "hidden",
+          }}
+        >
+          <FilterFramework
+            selectedFramework={selectedFramework}
+            setSelectedFramework={setSelectedFramework}
+          />
+        </div>
+
         <NewsList
-          page={page}
+          pages={pages}
           selectedFilter={selectedFilter}
           selectedFramework={selectedFramework}
         />
-        <Paginator page={page} setPage={setPage} />
+        <Paginator
+          selectedFilter={selectedFilter}
+          pages={pages}
+          setPages={setPages}
+        />
       </div>
     </div>
   );
