@@ -21,7 +21,6 @@ export default function NewsList({
   const {
     data: newsListRaw,
     isLoading,
-    // totalPages,
   } = useFetch(selectedFramework, pages[selectedFilter], selectedFilter);
 
   const ids = newsListRaw.map((o) => o.story_id);

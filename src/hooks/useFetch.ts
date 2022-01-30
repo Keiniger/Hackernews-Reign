@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 import { getPageByFramework } from "../utils/getPageByFramework";
 import { getFavorites } from "../utils/localStorage";
-import { FilterType, FrameworkType, Article } from "../types/Types";
-
-interface Fetched {
-  data: Article[];
-  isLoading: boolean;
-  totalPages: number;
-}
+import { FilterType, FrameworkType, Article, Fetched } from "../types/Types";
 
 const initialState: Fetched = {
   data: [],
   isLoading: true,
-  totalPages: 0,
 };
 
 export const useFetch = (
@@ -44,14 +37,12 @@ export const useFetch = (
         setState({
           data: upatedData,
           isLoading: false,
-          totalPages: pages - 1,
         });
       });
     } else {
       setState({
         data: favorites,
         isLoading: false,
-        totalPages: 0,
       });
     }
   }, [page, selectedFramework, selectedFilter]);

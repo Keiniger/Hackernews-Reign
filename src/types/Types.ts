@@ -12,6 +12,11 @@ export interface PagesType {
   MyFaves: number;
 }
 
+export interface Fetched {
+  data: Article[];
+  isLoading: boolean;
+}
+
 export const enum FrameworkType {
   React   = "React",
   Angular = "Angular",
