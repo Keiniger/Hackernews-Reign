@@ -35,7 +35,7 @@ export default function NewsList({
     return dividedPages.map((_, i) => favesList.splice(0, maxElementsPerPage));
   }
 
-  let finalNewsList = [...listWithoutRepeat].splice(1);
+  let finalNewsList = [...listWithoutRepeat];
   if (selectedFilter === FilterType.MyFaves) {
     finalNewsList = createFavPages([...finalNewsList])[pages.MyFaves - 1];
   }
